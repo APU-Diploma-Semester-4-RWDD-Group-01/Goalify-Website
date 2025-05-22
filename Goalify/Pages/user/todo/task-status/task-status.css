@@ -1,0 +1,173 @@
+[data-theme="dark"] {
+    #toggle-task-status {
+        color: black;
+    }
+
+    #task-status strong, .dropdown, .task {
+        color: black;
+    }
+
+    #past-date .duedate {
+        color: grey;
+    }
+
+    #doing .duedate {
+        color: rgb(218, 0, 0);
+    }
+        
+    #done .duedate {
+        color: green;
+    }
+    
+}
+
+.side-nav ul li#toggle-task-status {
+    background-color: var(--hover-color-light);
+    color: var(--font-color);
+}
+
+#toggle-task-status {
+    background-color: #efefef;
+}
+
+/* Task Status Content Area */
+.task {
+    display: none;
+}
+
+.task.show {
+    display: block;
+    padding-left: 30px;
+}
+
+.task span {
+    line-height: 40px;    
+    padding: 0;
+    margin: 0;
+}
+
+.duedate {
+    font-size: small;
+    float: right;
+}
+
+#past-date .duedate {
+    color: grey;
+}
+
+#doing .duedate {
+    color: rgb(218, 0, 0);
+}
+    
+#done .duedate {
+    color: green;
+}
+
+#past-date {
+    height: fit-content;
+    width: auto;
+    background-color: #AAD9BB;
+    border-radius: 10px;
+    display: block;
+    padding: 15px;
+    padding-right: 40px;
+    margin-bottom: 25px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#doing {
+    height: fit-content;
+    width: auto;
+    background-color: #D5F0C1; 
+    border-radius: 10px;
+    display: block;
+    padding: 15px;
+    padding-right: 40px;
+    margin-bottom: 25px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#done {
+    height: fit-content;
+    width: auto;
+    background-color: #F9F7C9;
+    border-radius: 10px;
+    display: block;
+    padding: 15px;
+    padding-right: 40px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+
+#past-date hr {
+    border: 0.5px solid rgb(143, 188, 111);
+}
+
+#doing hr {
+    border: 0.5px solid rgb(181, 218, 155);
+}
+
+#done hr {
+    border: 0.5px solid #ddd99d;
+}
+
+/* Task Status expand symbol */
+.dropdown {
+    font-size: 30px;
+    font-family: "Material Symbols Rounded";
+    content: "chevron_right";
+    vertical-align: middle;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.rotate {
+    transform: rotate(90deg);
+}
+
+#task-status strong {
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.item_count {
+    color: gray;
+    font-size: 0.7rem;
+    padding-left: 2%;
+}
+
+/* ------------------------------------------------------------------------------------------------------ */
+
+@media screen and (max-width: 420px){
+    .dropdown {
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+    .duedate {
+        display: flex;
+        float: none;
+        align-items: flex-start;
+    }
+
+    .task span {
+        line-height: 15px;
+        font-size: smaller;
+    }
+    
+    hr {
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+    
+}
+
+@media screen and (max-width: 1180px){
+    .content {
+        padding-bottom: 95px;
+    }
+}

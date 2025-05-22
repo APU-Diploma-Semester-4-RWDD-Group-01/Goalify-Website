@@ -1,0 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200..1000&family=Quicksand:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+    --button-bg: var(--hover-color-light);
+    --delete-button: #ff0000;
+    --completed-datetime-color: rgba(0, 0, 0, 0.274);
+}
+
+[data-theme="dark"] {
+    --button-bg: rgba(0, 0, 0, 0.2);
+    --delete-button: #d50000;
+    --completed-datetime-color: rgba(255, 255, 255, 0.459);
+}
+
+/* Side Navigational Bar */
+
+body {
+    background-color: var(--main-bg-color);
+}
+
+/* Desktop Top Navigational Bar */
+#top-nav-desktop div.left ul li a#goal-nav-desktop{
+    color: var(--hover-font-color);
+}
+
+#top-nav-desktop div.left ul li a#goal-nav-desktop::after{
+    width: 100%;
+    opacity: 1;
+}
+
+/* Mobile Bottom Navigational Bar */
+#bottom-nav-mobile ul li a#goal-nav-mobile {
+    color: var(--hover-font-color);
+}
+
+#bottom-nav-mobile ul li a#goal-nav-mobile span {
+    color: var(--hover-font-color);
+}
+
+#bottom-nav-mobile ul li:has(a#goal-nav-mobile)::after {
+    width: 100%;
+    opacity: 1;
+}
+
+/* .main-content {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+        "short long"
+        "completed completed";
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 0 25px;
+    background-color: unset;
+    box-shadow: unset;
+} */
+
+.content {
+    background-color: transparent;
+    padding: 0;
+    width: 100%;
+    padding: 0 25px;
+}
+
+.main-content {
+    width: 100%;
+    display: grid;
+    grid-template-areas: "short long completed";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    padding: 0 5px;
+    background-color: unset;
+    box-shadow: unset;
+    height: fit-content;
+}
+
+.short-term-section div.heading,
+.long-term-section div.heading,
+.completed-section div.heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.short-term-section form div p,
+.long-term-section form div p,
+.completed-section form div p {
+    margin-bottom: 10px;
+}
+
+input[type='checkbox'], form div p {
+    display: inline-block;
+    width: fit-content;
+}
+
+form div {
+    white-space: nowrap;
+}
+
+.short-term-section,
+.long-term-section,
+.completed-section {
+    /* display: grid; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--content-bg-color);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
+    position: relative;
+    min-height: 300px;
+    height: fit-content;
+    /* border: 1px solid var(--font-color); */
+}
+
+.short-term-section {
+    grid-area: short;
+    margin-bottom: 40px;
+}
+
+.long-term-section {
+    grid-area: long;
+    margin-bottom: 40px;
+}
+
+.completed-section {
+    grid-area: completed;
+    margin-bottom: 40px;
+}
+
+div.short-term-list, div.long-term-list, div.completed-list {
+    align-self: self-start;
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+div.heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+input{
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+.add-goal {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-self: self-end;
+    border: 1px solid transparent;
+    background-color: var(--button-bg);
+    border-radius: 5px;
+    padding: 5px 15px 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    position: absolute;
+    color: var(--font-color);
+    bottom: 15px;
+    width: 120px;
+    right: 20px;
+}
+
+.add-goal:hover {
+    border: 1px solid var(--hover-font-color);
+    background-color: rgba(0, 255, 247, 0.6);
+}
+
+.add-goal:active {
+    font-size: 11px;
+}
+
+div.goal {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    /* border: 1px solid var(--font-color); */
+    border-radius: 10px;
+}
+
+div.short-term-list div.goal {
+    background-color: #1e87c869;
+}
+
+div.long-term-list div.goal {
+    background-color: #1ebdc869;
+}
+
+div.goal span, div.goal div.delete-div {
+    width: 40px;
+    font-size: 1.3rem;
+}
+
+div.goal div.delete-div {
+    width: 10%;
+}
+
+div.delete-div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+div.goal div.delete-div span.delete {
+    opacity: 0;
+    justify-content: flex-end;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+div.goal:hover div.delete-div span.delete {
+    opacity: 1;
+}
+
+span.delete:hover {
+    color: var(--delete-button);
+}
+
+span.check {
+    cursor: pointer;
+}
+
+div.goal p {
+    width: calc(90% - 40px);
+}
+
+div.button-div {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    width: 100%;
+}
+
+div.completed-list div.goal {
+    flex-direction: column;
+    padding: 15px 0px;
+}
+
+p.completed-date-time {
+    font-size: 0.7rem;
+    margin-top: 4px;
+    color: var(--completed-datetime-color);
+}
+
+/* Add New Goal */
+.form-wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form#new-goal {
+    height: fit-content;
+    width: 300px;
+    top: 38%;
+    left: 40%;
+    padding: 25px 35px;
+    background-color: var(--workspace-form-bg-color);
+    font-size: 1rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    /* box-shadow: 2px 2px 2px #303030; */
+    z-index: 1000;
+}
+
+form#new-goal label {
+    color: var(--font-color);
+    font-size: 1.2rem;
+}
+
+form#new-goal input {
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    color: var(--font-color);
+    border: 1px solid var(--hr-color);
+    background-color: var(--workspace-name-bg-color);;
+    border-radius: 5px;
+}
+
+
+form#new-goal input:focus {
+    outline: none;
+}
+
+form#new-goal div.button {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+form#new-goal div.button button{
+    border-radius: 100px;
+    padding: 8px 15px;
+    color: var(--font-color);
+    /* border: 1px solid var(--side-nav-bg-color); */
+    border: 1px solid transparent;
+    background-color: var(--main-bg-color);
+    cursor: pointer;
+}
+
+form#new-goal div.button button:hover{
+    border: 1px solid var(--hover-font-color);
+    background-color: rgba(0, 255, 247, 0.6);
+}
+
+@media screen and (max-width: 1180px) {
+    .content {
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    .main-content {
+        top: 0;
+        left: unset;
+        right: unset;
+        width: 100%;
+    }
+
+    .short-term-section {
+        margin-bottom: 100px;
+    }
+
+    .long-term-section {
+        margin-bottom: 100px;
+    }
+
+    .completed-section {
+        margin-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-content {
+        grid-template-areas:
+            "short"
+            "long"
+            "completed";
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+        padding-bottom: 70px;
+    }
+
+    .short-term-section {
+        margin-bottom: 0;
+    }
+
+    .long-term-section {
+        margin-bottom: 0;
+    }
+
+    .completed-section {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .main-content {
+        padding-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .to-do-button{
+        font-size: 0.8em;
+        padding: 2.5px 5px 2.5px 5px;
+        right: 5%;
+    }
+    
+    .main-content {
+        grid-template-areas:
+            "short"
+            "long"
+            "completed";
+        grid-template-columns: 1fr;
+        /* grid-template-rows: auto 2fr 0.5fr 1.5fr 3fr; */
+        padding: 0 15px;
+        /* max-width: 90%; */
+        align-content: center;
+    }
+
+    .completed-section {
+        margin-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .main-content {
+        padding-top: 0;
+        padding-bottom: 80px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .main-content {
+        padding-bottom: 100px;
+    }
+    form#new-goal * {
+        font-size: 0.8rem !important;
+    }
+    form#new-goal div.button button {
+        padding: 6px 13px;
+    }
+}

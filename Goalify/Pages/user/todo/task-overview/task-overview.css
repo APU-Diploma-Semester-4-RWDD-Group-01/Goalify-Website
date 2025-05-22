@@ -1,0 +1,367 @@
+[data-theme="dark"] {
+    #toggle-task-overview {
+        color: black;
+    }
+
+    .task-item {
+        color: white;
+    }
+
+    .to-do-button {
+        border: 1px solid #00fff7;
+        background-color: rgb(0, 255, 247, 0.7);
+    }
+
+    #important-urgent {
+        color: white;
+        border: 3px solid #dda1a1;
+        background-color: transparent;
+    }
+
+    #important-urgent strong {
+        color: #dda1a1;
+    }
+
+    #important-not-urgent {
+        color: white;
+        border: 3px solid #aebe84;
+        background-color: transparent;
+    }
+
+    #important-not-urgent strong {
+        color: #aebe84;
+    }
+
+    #urgent-not-important {
+        color: white;
+        border: 3px solid #c3b4d2;
+        background-color: transparent;
+    }
+
+    #urgent-not-important strong {
+        color: #c3b4d2;
+    }
+
+    #not-urgent-not-important {
+        color: white;
+        border: 3px solid #a4bcd8;
+        background-color: transparent;
+    }
+
+    #not-urgent-not-important strong {
+        color: #a4bcd8;
+    }
+}
+
+
+/* ----------------------------------------------------------------------------------------------------- */
+.side-nav ul li#toggle-task-overview {
+    background-color: var(--hover-color-light);
+    color: var(--font-color);
+}
+
+#toggle-task-overview {
+    background-color: #efefef;
+}
+
+/* Task Overview Content Area */
+#task-overview {    
+    text-align: center;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+#task-overview div {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+.task-item {
+    color: black;
+}
+
+/* date selection arrows */
+.material-symbols-rounded.arrowleft, .material-symbols-rounded.arrowright {
+    font-size: 45px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.chosen_date {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/* 4 main Category boxes */
+#task-categories {
+    color: #2F3645;
+    margin-top:20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* task categories title */
+#task-categories strong {
+    margin-top: 7px;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-size: larger;
+}
+
+/* cateogory box content */
+#important-urgent {
+    background-color: #ffdddd;
+    min-height: 200px;
+    width: 46%;
+    border-radius: 7px;
+    float: left;
+    margin-left: 17px;
+    position: relative;
+    box-sizing: border-box;      
+}
+
+#important-not-urgent {
+    background-color: #e3f7af;
+    min-height: 200px;
+    width: 46%;
+    border-radius: 7px;
+    float: right;
+    margin-right: 17px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+#urgent-not-important {
+    background-color: #eedeff;
+    min-height: 200px;
+    width: 46%;
+    border-radius: 7px;
+    float: left;
+    margin-top: 45px;
+    margin-left: 17px;
+    position: relative;
+    clear: both;
+    box-sizing: border-box;
+}
+
+#not-urgent-not-important {
+    background-color: #c7e1ff;
+    min-height: 200px;
+    width: 46%;
+    border-radius: 7px;
+    float: right;
+    margin-top: 45px;
+    margin-right: 17px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.task-content {
+    text-align: left;
+    margin: 6px 28px 18% 28px;
+    padding: 0;
+    line-height: 28px;
+    height: 60%;
+    overflow-wrap: break-word;
+    letter-spacing: 1px;
+}
+
+.task-content:empty::before {  
+    content: "Add Task...";  
+    color: #8d8d8d;
+    display: block;
+}
+
+.task-item {
+    color: black;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.checkbox {
+    margin-right: 6px;
+}
+
+
+/* 'Add To-do' Button */
+button span {
+    font-size: large;
+}
+
+.to-do-button {
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    padding: 2px 10px 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    right: 3.5%;
+    bottom: 16px;
+    margin: 0;
+    position: absolute;    
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+.to-do-button:hover {
+    background-color: #00fff7;
+}
+
+.to-do-button:active {
+    font-size: 11px;    
+}
+
+#todo-insertion .insert-container {
+    position: fixed;
+    height: 65%;
+    width: 50%;
+    top: 15%;
+    left: 25%;
+    padding: 35px 35px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+#todo-insertion label {
+    font-size: 1.2rem;
+    margin-bottom: 1.2%;
+}
+
+#todo-insertion input {
+    font-size: 1.2rem;
+    outline: none;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+    height: 10%;
+    padding: 0 1.3%;
+}
+
+#todo-insertion textarea {
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    height: 50%;
+    width: 100%;
+    padding: 1.3%;
+    font-size: 1.2rem;
+    margin-bottom: 3%;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+#schedule-time {
+    margin-bottom: 3%;
+}
+
+#todo-insertion button {
+    background-color: #ffdddd;
+    padding: 8px 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    float: inline-end;
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-left: 3%;
+    border: none;
+}
+
+#todo-insertion button:hover {
+    background-color: #00fff7;
+}
+
+/* ------------------------------------------------------------------------------------------------------ */
+
+@media screen and (max-width: 420px){
+    .to-do-button{
+        font-size: 0.8em;
+        padding: 2.5px 7px 2.5px 7px;
+        right: 5%;
+    }
+    
+    button span {
+        font-size: small;
+    }
+
+    #todo-insertion .insert-container {
+        padding: 25px;
+    }
+
+    #todo-insertion button {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+
+    #todo-insertion input {
+        font-size: small;
+    }
+
+    #todo-insertion textarea {
+        font-size: 1rem;
+    }
+    
+}
+
+@media screen and (max-width: 790px) {
+    #important-urgent, #important-not-urgent, #urgent-not-important, #not-urgent-not-important {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+
+    #not-urgent-not-important {
+        margin-bottom: 0;
+    }
+
+    #todo-insertion .insert-container {
+        width: 70%;
+        top: 22%;
+        left: 15%;
+    }
+
+    #todo-insertion label {
+        font-size: 1rem;
+    }
+    
+    #todo-insertion input {
+        font-size: 1rem;
+    }
+
+}
+
+@media screen and (max-width: 1180px) {
+    .content {
+        padding-bottom: 100px;
+    }
+
+    #i-u-content, #i-n-u-content, #u-n-i-content, #n-u-n-i-content {
+        padding-bottom: 20px;
+    }
+
+    .to-do-button{
+        right: 4.5%;
+    }
+
+    #todo-insertion .insert-container {
+        height: 50%;
+        top: 22%;
+    }
+}
+
+
+
+
+
+
+
