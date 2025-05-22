@@ -1,0 +1,204 @@
+:root {
+    --add-member-button-bg: var(--hover-color-light);
+    --member-div-hover: var(--hover-color-light);
+    --member-div-hr: rgba(0, 0, 0, 0.182);
+
+}
+
+[data-theme="dark"] {
+    --add-member-button-bg: rgba(0, 0, 0, 0.2);
+    --member-div-hover: #474747;
+    --member-div-hr: rgba(255, 255, 255, 0.178);
+}
+
+.side-nav ul li#workspace-member {
+    background-color: var(--hover-color-light);
+}
+
+.members-section {
+    white-space: nowrap;
+}
+
+.members-section h1{
+    display: inline-block;
+    margin: 0;
+}
+
+.members-section #num-members {
+    display: inline-block;
+    font-size: 0.98rem;
+    margin-left: 12px;
+}
+
+.content .members-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.content .members-section #add-members-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid transparent;
+    background-color: var(--add-member-button-bg);
+    border-radius: 5px;
+    padding: 5px 15px 5px 10px;
+    color: var(--font-color);
+    cursor: pointer;
+}
+
+.content .members-section #add-members-button:hover {
+    border: 1px solid var(--hover-font-color);
+    background-color: rgba(0, 255, 247, 0.6);
+}
+
+.content .members-list {
+    margin-bottom: 100px;
+}
+
+.content .members-list hr{
+    border-top: 1.2px solid var(--member-div-hr);
+}
+
+.content .members-list div div.profile-pic {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    gap: 20px;
+}
+
+.content .members-list div div.profile-pic img{
+    margin: 0;
+}
+
+.content .members-list div {
+    display: flex;
+    padding: 13px 20px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content .members-list div p {
+    font-size: 1.1rem;
+    display: inline-flex;
+}
+
+.content .members-list div:hover {
+    background-color: var(--member-div-hover);
+}
+
+p#owner-role {
+    font-size: 0.98rem;
+    color: #939393;
+}
+
+/* Invite New Member */
+form#add-member-form {
+    height: fit-content;
+    width: 300px;
+    top: 38%;
+    left: 40%;
+    padding: 25px 35px;
+    background-color: var(--workspace-form-bg-color);
+    font-size: 1rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    /* box-shadow: 2px 2px 2px #303030; */
+    z-index: 1000;
+}
+
+form#add-member-form label {
+    color: var(--font-color);
+    font-size: 1.2rem;
+}
+
+form#add-member-form input {
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    color: var(--font-color);
+    border: 1px solid var(--hr-color);
+    background-color: var(--workspace-name-bg-color);;
+    border-radius: 5px;
+}
+
+form#add-member-form input:focus {
+    outline: none;
+}
+
+form#add-member-form div.button {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+form#add-member-form div.button button{
+    border-radius: 100px;
+    padding: 8px 15px;
+    color: var(--font-color);
+    /* border: 1px solid var(--side-nav-bg-color); */
+    border: 1px solid transparent;
+    background-color: var(--main-bg-color);
+    cursor: pointer;
+}
+
+form#add-member-form div.button button:hover{
+    border: 1px solid var(--hover-font-color);
+    background-color: rgba(0, 255, 247, 0.6);
+}
+
+@media screen and (max-width: 430px) {
+    .content .members-section #add-members-button {
+        position: absolute;
+        bottom: 80px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .content .members-section #add-members-button span {
+        margin-left: 4px;
+    }
+    .content .members-section #add-members-button p {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .content .members-list div {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .content .members-section #add-members-button {
+        bottom: 100px;
+    }
+    form#add-member-form * {
+        font-size: 0.8rem !important;
+    }
+    form#add-member-form div.button button {
+        padding: 6px 13px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .content .members-section #add-members-button {
+        bottom: 90px;
+    }
+}
+
+@media screen and (max-width: 344px) {
+    .content .members-section #add-members-button {
+        bottom: 80px;
+    }
+}

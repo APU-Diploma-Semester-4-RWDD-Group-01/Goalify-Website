@@ -1,0 +1,514 @@
+:root {
+    --recent-project-bg: var(--hover-color-light);
+    --hover-recent-project-bg: #dbdbdb;
+    --recent-project-border-color: rgba(0, 0, 0, 0.459);
+    --scroll-color: var(--hover-color-light);
+    --hover-scroll-color: #dbdbdb;
+    --created-datetime-color: rgba(0, 0, 0, 0.274);
+    --complete-button-color: #01a137;
+    --delete-button-color: #ff0000;
+    --open-button-color: #02a9a4; /* same color, but turn a bit darker */
+    --start-button-color: #ff8000;
+}
+
+[data-theme="dark"] {
+    --recent-project-bg: rgba(0, 0, 0, 0.2);
+    --hover-recent-project-bg: rgba(0, 0, 0, 0.3);
+    --recent-project-border-color: rgba(255, 255, 255, 0.459);
+    --scroll-color: #474747;
+    --hover-scroll-color: var(--top-nav-hover-color-light);
+    --created-datetime-color: rgba(255, 255, 255, 0.459);
+    --complete-button-color: #1aff67;
+    --delete-button-color: #d50000;
+    --open-button-color: #00fff7;
+    --start-button-color: #ffad21;
+}
+
+.side-nav ul li#workspace-project {
+    background-color: var(--hover-color-light);
+}
+
+.content .all-projects {
+    margin-bottom: 100px !important;
+}
+
+/* Project Scrollable */
+.content .project-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.content .project-wrapper .projects {
+    position: relative;
+    white-space: nowrap;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+.content .project-wrapper .projects::-webkit-scrollbar {
+    display: none;
+}
+
+.content .project-wrapper .projects div.project {
+    margin-right: 15px;
+    padding: 10px;
+    display: inline-block;
+    width: 280px;
+    height: 150px;
+    background-color: var(--recent-project-bg);
+    border-radius: 3px;
+    border: 1px solid var(--recent-project-border-color);
+}
+
+.content .project-wrapper .projects div.project:hover{
+    background-color: var(--hover-recent-project-bg);
+}
+
+.content .project-wrapper .projects div ul {
+    margin-left: 5px;
+    position: absolute;
+    bottom: 15px;
+    list-style: none;
+}
+
+.content .project-wrapper .projects div ul li {
+    white-space: nowrap;  /* Prevents text from wrapping */
+    overflow: hidden;     /* Hides overflowed text */
+    text-overflow: ellipsis; /* Adds "..." when text is too long */
+    max-width: 250px;      /* Ensures it respects container */
+}
+
+.content .project-wrapper .projects div ul li.created-date-time,  .content .project-wrapper .projects div ul li.deadline{
+    font-size: 0.7rem;
+    margin-top: 4px;
+    color: var(--created-datetime-color);
+}
+
+p.created-date-time, p.deadline, p.ended {
+    font-size: 0.7rem;
+    margin-top: 4px;
+    color: var(--created-datetime-color);
+}
+
+.material-symbols-rounded.scroll-left {
+    margin-right: 20px;
+}
+
+.material-symbols-rounded.scroll-right {
+    margin-left: 20px;
+}
+
+.material-symbols-rounded.scroll-left, .material-symbols-rounded.scroll-right {
+    background-color: var(--scroll-color);
+    border-radius: 5px;
+    padding: 5px 2px;
+    cursor: pointer;
+}
+
+.material-symbols-rounded.scroll-left:hover, .material-symbols-rounded.scroll-right:hover{
+    background-color: var(--hover-scroll-color);
+}
+
+hr#ongoing-project-hr {
+    margin-bottom: 30px;
+}
+
+hr#pending-project-hr {
+    margin-bottom: 30px;
+}
+
+/* All Projects */
+.all-projects-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* margin-top: 30px; */
+    margin-bottom: 25px;
+}
+
+.all-projects-title {
+    white-space: nowrap;
+}
+
+.all-projects-title h1{
+    display: inline-block;
+    margin: 0;
+}
+
+.all-projects-title #num-projects {
+    display: inline-block;
+    font-size: 0.98rem;
+    margin-left: 12px;
+}
+
+.search-add-projects {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-add-projects #add-projects-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid transparent;
+    background-color: var(--recent-project-bg);
+    border-radius: 5px;
+    padding: 5px 15px 5px 10px;
+    color: var(--font-color);
+    cursor: pointer;
+}
+
+.search-add-projects #add-projects-button:hover {
+    border: 1px solid var(--hover-font-color);
+    background-color: rgba(0, 255, 247, 0.6);
+}
+
+.search-add-projects #search-projects-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--recent-project-border-color);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-left: 25px;
+}
+
+.search-add-projects #search-projects-bar input {
+    color: var(--font-color);
+    margin-left: 5px;
+    border: none;
+    padding: 3px 5px;
+    background-color: transparent;
+}
+
+button[type="submit"] {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--font-color);
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    appearance: none;
+}
+
+.search-add-projects #search-projects-bar input:focus {
+    outline: none;
+}
+
+.search-add-projects #search-projects-bar:has(.search-add-projects #search-projects-bar input:focus) {
+    border: 1.5px solid var(--recent-project-border-color);
+}
+
+.projects-list {
+    margin-bottom: 40px;
+}
+
+.projects-list hr {
+    border-top: 1.2px solid var(--recent-project-border-color);
+}
+
+.projects-list div {
+    padding: 6px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.projects-list div.all-project-details {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.projects-list div:hover {
+    background-color: var(--scroll-color);
+}
+
+
+/* Add New Project */
+
+.form-wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form#new-project-form {
+    height: fit-content;
+    width: 300px;
+    top: 38%;
+    left: 40%;
+    padding: 25px 35px;
+    background-color: var(--workspace-form-bg-color);
+    font-size: 1rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    /* box-shadow: 2px 2px 2px #303030; */
+}
+
+form#new-project-form label {
+    color: var(--font-color);
+    font-size: 1.2rem;
+}
+
+form#new-project-form input {
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    color: var(--font-color);
+    border: 1px solid var(--hr-color);
+    background-color: var(--workspace-name-bg-color);;
+    border-radius: 5px;
+}
+
+
+form#new-project-form input:focus {
+    outline: none;
+}
+
+form#new-project-form div.button {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+form#new-project-form div.button button{
+    border-radius: 100px;
+    padding: 8px 15px;
+    color: var(--font-color);
+    /* border: 1px solid var(--side-nav-bg-color); */
+    border: 1px solid transparent;
+    background-color: var(--main-bg-color);
+    cursor: pointer;
+}
+
+form#new-project-form div.button button:hover{
+    border: 1px solid var(--hover-font-color);
+    background-color: rgba(0, 255, 247, 0.6);
+}
+
+div.project-actions {
+    opacity: 0;
+    margin: 0 auto;
+    margin-top: 18px;
+    color: var(--font-color);
+    display: flex;
+    /* gap: 5px; */
+    align-items: center;
+    justify-content: space-around;
+    height: fit-content;
+}
+
+div.project-actions span.divider {
+    width: 1px;
+    height: 40px;
+    background-color: var(--created-datetime-color);
+}
+
+button.complete, button.delete, button.open, button.start {
+    border: none;
+    outline: none;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: var(--font-color);
+    cursor: pointer;
+}
+
+.projects-list div div.project-actions {
+    margin-top: 0;
+    width: fit-content;
+    gap: 20px;
+}
+
+button.complete:hover {
+    color: var(--complete-button-color)
+}
+
+button.delete:hover {
+    color: var(--delete-button-color)
+}
+
+button.open:hover {
+    color: var(--open-button-color)
+}
+
+button.start:hover {
+    color: var(--start-button-color);
+}
+
+.content .project-wrapper .projects div.project:hover div.project-actions {
+    opacity: 1;
+    transition: .3s ease-in-out;
+}
+
+.projects-list div:hover div.project-actions {
+    opacity: 1;
+    transition: .3s ease-in-out;
+}
+
+div.drop-down-project-actions {
+    display: none;
+}
+
+
+@media screen and (max-width: 540px) {
+    h1#ongoing-project-heading, .project-wrapper.ongoing, hr#ongoing-project-hr, h1#pending-project-heading, .project-wrapper.pending, hr#pending-project-hr {
+        display: none;
+    }
+
+    .all-projects-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .search-add-projects {
+        width: 100%;
+        flex-direction: column;
+        padding: 0;
+    }
+    .search-add-projects #search-projects-bar input {
+        width: 90%;
+    }
+    .search-add-projects #search-projects-bar {
+        width: 100%;
+        justify-content: space-between;
+        margin: 0;
+        margin-top: 5px;
+    }
+    .content .all-projects .all-projects-section .search-add-projects div#add-projects-button {
+        position: fixed;
+        bottom: 80px;
+        right: 40px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .content .all-projects .all-projects-section .search-add-projects div#add-projects-button span {
+        margin-left: 4px;
+    }
+    .content .all-projects .all-projects-section .search-add-projects div#add-projects-button p {
+        display: none;
+    }
+
+    .all-projects-section {
+        margin-top: 0;
+    }
+    div.projects-list div.project {
+        flex-direction: column;
+        padding: 0;
+    }
+    .projects-list div.all-project-details {
+        padding: 10px 15px;
+    }
+    .projects-list div div.project-actions.close {
+        display: none;
+    }
+    .projects-list div div.project-actions {
+        display: flex;
+        padding: 0;
+        width: 100%;
+        gap: 0;
+        opacity: 1;
+    }
+    .projects-list div div.project-actions button {
+        width: 100%;
+        padding: 10px 0;
+        padding-top: 0;
+    }
+    div.project-actions span.divider {
+        display: none;
+    }
+    form#new-project-form {
+        top: 260px;
+        left: 120px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .all-projects-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .search-add-projects {
+        width: 100%;
+        flex-direction: column;
+        padding: 0;
+    }
+    .search-add-projects #search-projects-bar input {
+        width: 90%;
+    }
+    .search-add-projects #search-projects-bar {
+        width: 100%;
+        justify-content: space-between;
+        margin: 0;
+        margin-top: 5px;
+    }
+    .content .all-projects .all-projects-section .search-add-projects div#add-projects-button {
+        position: fixed;
+        bottom: 80px;
+        right: 40px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .content .all-projects .all-projects-section .search-add-projects div#add-projects-button span {
+        margin-left: 4px;
+    }
+    .content .all-projects .all-projects-section .search-add-projects div#add-projects-button p {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .projects-list div div.project-actions * {
+        font-size: 0.9rem;
+    }
+    .projects-list div div.project-actions p {
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .content .all-projects .all-projects-section .search-add-projects div#add-projects-button {
+        bottom: 80px;
+        right: 30px;
+    }
+    form#new-project-form * {
+        font-size: 0.8rem !important;
+    }
+    form#new-project-form div.button button {
+        padding: 6px 13px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .content .all-projects .all-projects-section .search-add-projects div#add-projects-button {
+        bottom: 90px;
+    }
+}
+
+@media screen and (max-width: 344px) {
+    .content .all-projects .all-projects-section .search-add-projects div#add-projects-button {
+        bottom: 80px;
+    }
+}
